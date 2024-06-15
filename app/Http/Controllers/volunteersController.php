@@ -13,20 +13,35 @@ class volunteersController extends Controller
         $article = Article::findOrFail($id);
         return view('form_volunteers', compact('article'));
     }
-    public function addVolunteer (Request $request){
-        $volunteer = volunteers::create([
-            'fname'=> $request->fname,
+    public function addVolunteer(Request $request)
+    {
+        $user = Auth::user();
+
+        // Cari artikel berdasarkan judul
+        $article = Article::where('title', $request->article)->first();
+
+        if (!$article) {
+            // Artikel tidak ditemukan, tangani di sini (misalnya kembalikan dengan pesan kesalahan)
+            return back()->withError('Artikel tidak ditemukan.');
+        }
+
+        // Buat volunteer baru
+        $volunteer = Volunteers::create([
+            'user_id' => $user->id,
+            'article_id' => $article->id,
+            'fname' => $request->fname,
             'lname' => $request->lname,
             'email' => $request->email,
             'phone' => $request->phone,
             'city' => $request->city,
             'state' => $request->state,
             'postal' => $request->postal,
-            'article_title' => $request->article,
         ]);
         $users = Auth::user();
+        // Redirect ke halaman selamat datang (welcomeuser)
         return view('welcomeuser', compact('users'));
     }
+
     public function destroy($id)
     {
         $volunters = volunteers::findOrFail($id);

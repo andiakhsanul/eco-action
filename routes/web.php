@@ -63,6 +63,7 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
     Route::get('/articles/{id}/edit', [AdminController::class, 'edit'])->name('articles.edit');
     Route::put('/articles/{id}', [AdminController::class, 'update'])->name('articles.update');
     Route::delete('/articles/{id}', [AdminController::class, 'destroy'])->name('articles.destroy');
+    Route::get('/admin/articles/{id}', [AdminController::class, 'show'])->name('admin.articles.show');
 });
 
 Route::controller(UserController::class)->group(function () {

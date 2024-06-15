@@ -22,7 +22,7 @@
 
                     <div class="form-group">
                         <label for="image" class="col-form-label text-md-right text-white">Gambar</label>
-                        <input id="image" class="text-white" type="file" class="form-control-file" name="image" required>
+                        <input id="image" type="file" class="form-control-file text-white" name="image" required>
                     </div>
 
                     <div class="form-group mb-0">

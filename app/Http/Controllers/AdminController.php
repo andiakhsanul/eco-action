@@ -17,7 +17,7 @@ class AdminController extends Controller
     public function index()
     {
         $users = User::count();
-        $volunteers = volunteers::count();
+        $volunteers = Volunteers::count();
         $articles = Article::count();
         $feedback = feedback::count();
         $donations = donate::count();
@@ -68,29 +68,39 @@ class AdminController extends Controller
     {
         // Validasi input
         $validator = Validator::make($request->all(), [
-            'title' => 'required|unique:articles',
+            'title' => 'required|unique:articles|max:255',
             'description' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         if ($validator->fails()) {
-            return redirect()->route('articles.create')
+            return redirect()->back()
                 ->withErrors($validator)
                 ->withInput();
         }
 
-        // Simpan gambar
-        $path = $request->file('image')->store('article_image', 'public');
+        try {
+            // Simpan gambar
+            // Simpan gambar
+            $path = $request->file('image')->store('article_images', 'public');
+            // Tambahkan ini untuk debugging
+            // dd($path); // Cek apakah path sesuai dengan yang diharapkan
 
-        // Simpan artikel ke dalam basis data
-        $articles = new Article();
-        $articles->title = $request->title;
-        $articles->description = $request->description;
-        $articles->image = $path;
-        $articles->save();
 
-        return redirect()->route('dashboard.articles')->with('success', 'Artikel berhasil ditambahkan.');
+            // Simpan artikel ke dalam basis data
+            $article = new Article();
+            $article->title = $request->title;
+            $article->description = $request->description;
+            $article->image = $path; // Pastikan $path sesuai dengan yang diunggah
+            $article->save();
+
+            return redirect()->route('dashboard.articles')->with('success', 'Artikel berhasil ditambahkan.');
+        } catch (\Exception $e) {
+            // Tangani exception di sini, misalnya log dan kembalikan pesan kesalahan
+            dd($e->getMessage());
+        }
     }
+
 
     public function edit($id)
     {
@@ -145,5 +155,22 @@ class AdminController extends Controller
         $articles->delete();
 
         return redirect()->route('dashboard.articles')->with('success', 'Artikel berhasil dihapus.');
+    }
+
+
+
+    //detail article admin
+
+    public function show($articleId)
+    {
+        // Temukan artikel berdasarkan ID
+        $article = Article::findOrFail($articleId);
+
+        // Ambil jumlah volunteer yang terdaftar untuk artikel ini
+        $volunteerCount = Volunteers::where('article_id', $articleId)->count();
+        // dd($volunteerCount);
+
+        // Tampilkan view detail artikel dengan data artikel dan jumlah volunteer
+        return view('dashboard.articles.show', compact('article', 'volunteerCount'));
     }
 }

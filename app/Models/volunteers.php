@@ -5,14 +5,25 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class volunteers extends Model
+class Volunteers extends Model
 {
     use HasFactory;
+
     protected $table = 'volunteers';
     protected $primaryKey = 'id';
     protected $keyType = 'int';
 
-    protected $fillable = ['fname', 'lname', 'email','phone','city','state','postal','article_title'];
+    protected $fillable = ['user_id', 'article_id', 'fname', 'lname', 'email', 'phone', 'city', 'state', 'postal'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function article()
+    {
+        return $this->belongsTo(Article::class);
+    }
 
     public function getFullNameAttribute()
     {

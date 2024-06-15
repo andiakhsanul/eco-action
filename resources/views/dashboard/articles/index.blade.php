@@ -26,6 +26,7 @@
                         </td>
                         <td>{{ $article->created_at->format('d/m/Y H:i:s') }}</td>
                         <td>
+                            <a href="{{ route('admin.articles.show', $article->id) }}" class="btn btn-sm btn-info">Detail</a>
                             <a href="{{ route('articles.edit', $article->id) }}" class="btn btn-primary btn-sm">Edit</a>
                             <form action="{{ route('articles.destroy', $article->id) }}" method="POST" style="display: inline-block;">
                                 @csrf

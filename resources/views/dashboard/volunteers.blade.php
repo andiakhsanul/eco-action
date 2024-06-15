@@ -3,8 +3,8 @@
 @section('content')
     <!-- Table to display users -->
     <div id="users-table" class="container allContent-section py-4">
-        <h2>All Volunteers</h2>  
-        <table class="table ">
+        <h2>All Volunteers</h2>
+        <table class="table">
             <thead>
                 <tr>
                     <th class="text-center">Full Name</th>
@@ -14,7 +14,7 @@
                     <th class="text-center">State</th>
                     <th class="text-center">Postal</th>
                     <th class="text-center">Article</th>
-                    <th class="text=center"> Action </th>
+                    <th class="text-center">Action</th>
                 </tr>
             </thead>
             <tbody id="users-data">
@@ -26,7 +26,7 @@
                         <td class="text-center">{{ $volunteer->city }}</td>
                         <td class="text-center">{{ $volunteer->state }}</td>
                         <td class="text-center">{{ $volunteer->postal }}</td>
-                        <td class="text-center">{{ $volunteer->article_title }}</td>
+                        <td class="text-center">{{ $volunteer->article->title }}</td>
                         <td>
                             <form action="{{ route('volunteer.destroy', $volunteer->id) }}" method="POST" style="display: inline-block;">
                                 @csrf
