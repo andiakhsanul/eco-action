@@ -116,66 +116,10 @@
               </div>
             </div>
           </div>
-          <div class="carousel-item ">
-            <div class="container">
-              <div class="row">
-                <div class="col-md-7">
-                  <div class="detail-box">
-                    <h1>
-                      Nurturing Nature <br>
-                      <span>
-                        Preserving Our Future
-                      </span>
-                    </h1>
-                    <p>
-                      By protecting and preserving the environment, we are safeguarding the very foundation of life
-                      itself. Sustainable living is not just a choice; it's our responsibility. Let's embrace this duty
-                      with determination, knowing that our actions today shape the world for generations to come.
-                      Together, let's nurture our planet, ensuring a future where nature thrives and all life flourishes
-                      in harmony.
-                    </p>
-                    <div class="btn-box">
-                      <a href="{{route('login')}}" class="btn-1"> Sign In > </a>
-                      <a href="{{route('donate')}}" class="btn-2">Donate now > </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item ">
-            <div class="container">
-              <div class="row">
-                <div class="col-md-7">
-                  <div class="detail-box">
-                    <h1>
-                      Nurturing Nature <br>
-                      <span>
-                        Preserving Our Future
-                      </span>
-                    </h1>
-                    <p>
-                      By protecting and preserving the environment, we are safeguarding the very foundation of life
-                      itself. Sustainable living is not just a choice; it's our responsibility. Let's embrace this duty
-                      with determination, knowing that our actions today shape the world for generations to come.
-                      Together, let's nurture our planet, ensuring a future where nature thrives and all life flourishes
-                      in harmony.
-                    </p>
-                    <div class="btn-box">
-                      <a href="{{route('login')}}" class="btn-1"> Sign In > </a>
-                      <a href="{{route('donate')}}" class="btn-2">Donate now > </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
         <div class="container idicator_container">
           <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
           </ol>
         </div>
       </div>
