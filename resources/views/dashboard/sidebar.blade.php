@@ -13,8 +13,9 @@
     <a href="{{route('dashboard.donations')}}"><i class="fa fa-money"></i> Donation</a>
     <a href="{{route('dashboard.articles')}}"><i class="fa fa-bookmark "></i> Articles</a>
     <a href="{{route('dashboard.feedback')}}"><i class="fa fa-comment "></i> Feedback</a>
+    <a href="{{route('dashboard.educations.index')}}"><i class="fa fa-graduation-cap "></i> Education</a>
     <a href="{{route('logout')}}"><i class="fa fa-caret-square-o-left "></i> Logout</a>
-    
+
 </div>
 
 <div id="main">

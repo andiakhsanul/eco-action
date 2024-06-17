@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use App\Models\Education;
 
 class UserController extends Controller
 {
@@ -36,7 +37,7 @@ class UserController extends Controller
         if (Auth::attempt($credentials)) {
             // Authentication passed...
             if (Auth::user()->role == 'admin') {
-                return redirect()->intended('/dashboard');
+                return redirect()->route('dashboard');
             } else {
                 return redirect()->intended('/welcome');
             }
@@ -82,7 +83,8 @@ class UserController extends Controller
     }
     public function Logout() {
         Auth::logout();
-        return view('welcome');
+        $educations = Education::all();
+        return view('welcome',compact('educations'));
     }
 
     public function destroy($id)

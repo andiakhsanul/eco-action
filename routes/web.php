@@ -9,7 +9,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\volunteersController;
 use App\Http\Controllers\donateController;
-
+use App\Models\Education;
+use App\Http\Controllers\EducationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,8 +23,11 @@ use App\Http\Controllers\donateController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $educations = Education::all();
+    // dd($educations);
+    return view('welcome', compact('educations'));
 });
+
 
 Route::get('/volunteer', function () {
     $articles = Article::all();
@@ -43,7 +47,7 @@ Route::get('/contact', function () {
 
 
 Route::middleware('auth')->prefix('dashboard')->group(function () {
-    Route::get('/', [AdminController::class, 'index'])->name('dashboard');
+    Route::get('/admin', [AdminController::class, 'index'])->name('dashboard');
 
     Route::get('/volunteers', [AdminController::class, 'volunteers'])->name('dashboard.volunteers');
     Route::delete('/volunteer/{id}',[volunteersController::class, 'destroy'])->name('volunteer.destroy');
@@ -69,7 +73,7 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
 Route::controller(UserController::class)->group(function () {
     Route::get('/welcome', 'index');
     Route::get('/login', 'login')->name('login');
-    Route::get('/', 'logout')->name('logout');
+    Route::get('/logout', 'logout')->name('logout');
     Route::post('/login', 'doLogin')->name('doLogin');
     Route::get('/register', 'register')->name('register');
     Route::post('/register', 'doRegister')->name('doRegister');
@@ -83,3 +87,13 @@ Route::controller(UserController::class)->group(function () {
 Route::get('/donation-history/{donationId}', [donateController::class, 'donationHistory'])->name('donation-history');
 // Route::put('/donations/{id}', [donateController::class, 'donationHistory'])->name('donations.update');
 Route::delete('/donations/{id}', [donateController::class, 'destroy'])->name('donations.destroy');
+
+
+
+Route::get('/educations', [EducationController::class, 'index'])->name('dashboard.educations.index');
+Route::get('/educations/create', [EducationController::class, 'create'])->name('dashboard.educations.create');
+Route::post('/educations', [EducationController::class, 'store'])->name('dashboard.educations.store');
+Route::get('/educations/{id}/edit', [EducationController::class, 'edit'])->name('dashboard.educations.edit');
+Route::put('/educations/{id}', [EducationController::class, 'update'])->name('dashboard.educations.update');
+Route::delete('/educations/{id}', [EducationController::class, 'destroy'])->name('dashboard.educations.destroy');
+Route::get('/educations/{id}', [EducationController::class, 'show'])->name('dashboard.educations.show');
