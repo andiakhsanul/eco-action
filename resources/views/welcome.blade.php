@@ -233,7 +233,7 @@
                     <div class="col-md-4">
                         <div class="box">
                             <div class="img-box">
-                                <img src="{{ asset('assets/images/' . $education->image) }}" style="margin-left:auto; margin-right: auto;" alt="{{ $education->title }}">
+                                <img src="{{ asset('storage/' . $education->image) }}" style="margin-left:auto; margin-right: auto;" alt="{{ $education->title }}">
                             </div>
                             <div class="detail-box" style="color: black;">
                                 <h6>{{ $education->title }}</h6>
