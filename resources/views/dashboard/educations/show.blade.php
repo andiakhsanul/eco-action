@@ -27,21 +27,21 @@
         <div class="col-md-8 offset-md-2">
             <div class="card">
                 <div class="card-header">
-                    Detail Artikel: {{ $article->title }}
+                    Detail education: {{ $education->title }}
                 </div>
 
                 <div class="card-body">
                     <div class="mb-4">
-                        <img src="{{ asset('storage/' . $article->image) }}" class="img-fluid mb-3" alt="Gambar Artikel">
+                        <img src="{{ asset('storage/' . $education->image) }}" class="img-fluid mb-3" alt="Gambar Artikel">
                     </div>
 
-                    <p class="card-text">{{ $article->description }}</p>
-
+                    <p class="card-text">{{ $education->description }}</p>
+{{--
                     <div class="mb-4">
                         <strong>Jumlah Volunteer:</strong> {{ $volunteerCount }}
-                    </div>
+                    </div> --}}
 
-                    <a href="{{ route('dashboard.articles') }}" class="btn btn-back">Kembali</a>
+                    <a href="{{ route('dashboard.educations.index') }}" class="btn btn-back">Kembali</a>
                 </div>
             </div>
         </div>
