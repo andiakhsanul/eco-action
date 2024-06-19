@@ -116,4 +116,12 @@ class EducationController extends Controller
         // Tampilkan view detail education
         return view('dashboard.educations.show', compact('education'));
     }
+
+
+    public function showdetail($id)
+    {
+        $education = Education::findOrFail($id);
+        return view('educationdetail', compact('education'));
+    }
+
 }

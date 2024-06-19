@@ -221,7 +221,7 @@
 
   <!-- service section -->
   <section class=" slider_section ">
-    @if($educations->isNotEmpty())
+     @if($educations->isNotEmpty())
         <!-- Service section -->
         <section class="service_section layout_padding">
             <div class="container">
@@ -237,8 +237,8 @@
                             </div>
                             <div class="detail-box" style="color: black;">
                                 <h6>{{ $education->title }}</h6>
-                                <p>{{ $education->description }}</p>
-                                <a href="">Read More</a>
+                                <p>{{ Str::limit($education->description, 25) }}</p> <!-- Batasi deskripsi maksimal 100 karakter -->
+                                <a href="{{ route('educations.show', $education->id) }}">Read More</a>
                             </div>
                         </div>
                     </div>
@@ -246,7 +246,7 @@
                 </div>
             </div>
         </section>
-        @endif
+    @endif
 
 
     <!-- end service section -->

@@ -97,3 +97,6 @@ Route::get('/educations/{id}/edit', [EducationController::class, 'edit'])->name(
 Route::put('/educations/{id}', [EducationController::class, 'update'])->name('dashboard.educations.update');
 Route::delete('/educations/{id}', [EducationController::class, 'destroy'])->name('dashboard.educations.destroy');
 Route::get('/educations/{id}', [EducationController::class, 'show'])->name('dashboard.educations.show');
+
+// routes/web.php
+Route::get('/educationss/{id}', [EducationController::class, 'showdetail'])->name('educations.show');
