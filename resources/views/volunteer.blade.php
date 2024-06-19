@@ -1,49 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <style>
-        body {
-            background-color: #4E8A67;
-        }
-
-        .article-card {
-            background-color: #FBF1DD;
-            border-radius: 15px;
-            margin-bottom: 20px;
-        }
-
-        .article-card img {
-            border-radius: 15px;
-        }
-
-        .article-card .article-content {
-            margin-left: 20px;
-        }
-    </style>
 </head>
 
-<body id="deforestation">
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container-fluid">
-            <a class="navbar-brand text-white" href="#">EcoAction</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="javascript:void(0);" onclick="goBack()">Home</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<style>
+    .article-card {
+        background-color: transparent;
+    }
 
+    .article-content {
+        color: white;
+    }
+
+    .article-content h1,
+    .article-content p,
+    .article-content strong {
+        color: white;
+    }
+
+    .article-content a.btn-primary {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+
+    .article-content a.btn-primary:hover {
+        background-color: #004494;
+        border-color: #004494;
+    }
+</style>
+<body>
+
+</body><!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>EcoAction</title>
+
+    <!-- bootstrap core css -->
+    {{-- <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.css') }}" /> --}}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- fonts style -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,600,700&display=swap" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="{{ asset('assets/css/responsive.css') }}" rel="stylesheet" />
+    <link rel="shortcut icon" href="{{asset('assets/images/logo ecoact.png')}}" type="image/x-icon">
+      <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+</head>
+
+<body>
+  <div class="landing_area">
+    <!-- header section strats -->
+    <div class="landing_bg_box">
+      <div class="img-box">
+        <img src="{{asset('assets/images/web bg 2.png')}}" alt="">
+      </div>
+    </div>
+
+    <header class="header_section">
+      <div class="header">
+        <div class="container-fluid">
+          <nav class="navbar navbar-expand-lg custom_nav-container">
+            <a class="navbar-brand" href="index.php">
+              <span>
+                EcoAction
+              </span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class=""></span>
+            </button>
+
+            <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
+              <ul class="navbar-nav  ">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                {{-- <li class="nav-item">
+                  <a class="nav-link" href="#about"> About us</a>
+                </li> --}}
+                <li class="nav-item">
+                  <a class="nav-link" href="#feedback"> Feedback</a>
+                </li>
+                <!-- <li class="nav-item">
+                  <a class="nav-link" href="{{route('contact')}}">Contact us</a>
+                </li> -->
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
     <div class="container mt-4">
         @foreach($articles as $article)
         <div class="row article-card shadow-sm p-3">
@@ -52,21 +113,23 @@
             </div>
             <div class="col-md-6 article-content">
                 <h1>{{ $article->title }}</h1>
-                <p>{{ $article->description }}</p>
+                <p>{{ Str::limit($article->description, 40) }}</p>
                 <p><strong>Volunteers:</strong> {{ $article->volunteers->count() }}</p>
                 <a class="btn btn-primary" href="{{ route('article.detail', $article->id) }}">Take Actions ></a>
             </div>
         </div>
         @endforeach
-    </div>
+</div>
+  </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="{{ asset('assets/js/index.js') }}"></script>
-    <script>
-        function goBack() {
-            window.history.back();
-        }
-    </script>
+    <!-- footer section -->
+    <footer class="container-fluid footer_section">
+      <p>
+        &copy; <span id="currentYear"></span> Design by Evita and Sisil
+      </p>
+    </footer>
+    <!-- footer section -->
 </body>
 
+</html>
 </html>
