@@ -170,77 +170,32 @@
 
   <!-- service section -->
   <section class=" slider_section ">
-    <section class="service_section layout_padding">
-      <div class="container">
-        <div class="heading_container heading_center">
-          <h2>
-            What's New?
-          </h2>
-        </div>
-        <div class="row">
-          <div class="col-md-4">
-            <div class="box ">
-              <div class="img-box">
-                <img src="{{asset('assets/images/1.png')}}" style="margin-left:auto; margin-right: auto;" alt="">
-
-              </div>
-              <div class="detail-box" style="color: black;">
-                <h6>
-                  Climate Change
-                </h6>
-                <p>
-                  Climate change is the result of human activities like burning fossil fuels, causing global warming
-                  and extreme weather. Immediate action is crucial to address its impacts.
-                </p>
-                <a href="">
-                  Read More
-                </a>
-              </div>
+@if($educations->isNotEmpty())
+        <!-- Service section -->
+        <section class="service_section layout_padding">
+            <div class="container">
+                <div class="heading_container heading_center">
+                    <h2>What's New?</h2>
+                </div>
+                <div class="row">
+                    @foreach($educations->take(3) as $education)
+                    <div class="col-md-4">
+                        <div class="box">
+                            <div class="img-box">
+                                <img src="{{ asset('storage/' . $education->image) }}" style="margin-left:auto; margin-right: auto;" alt="{{ $education->title }}">
+                            </div>
+                            <div class="detail-box" style="color: black;">
+                                <h6>{{ $education->title }}</h6>
+                                <p>{{ Str::limit($education->description, 25) }}</p> <!-- Batasi deskripsi maksimal 100 karakter -->
+                                <a href="{{ route('educations.show', $education->id) }}">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
             </div>
-          </div>
-          <div class="col-md-4">
-            <div class="box ">
-              <div class="img-box">
-                <img src="{{asset('assets/images/2.png')}}" style="margin-left:auto; margin-right: auto;" alt="">
-
-              </div>
-              <div class="detail-box" style="color: black;">
-                <h6>
-                  Deforestation
-                </h6>
-                <p>
-                  Deforestation is the extensive removal of forests, primarily due to human activities like logging
-                  and agriculture. It leads to biodiversity loss, disrupts ecosystems, and contributes to climate
-                  change.
-                </p>
-                <a href="">
-                  Read More
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="box ">
-              <div class="img-box">
-                <img src="{{asset('assets/images/3.png')}}" style="margin-left:auto; margin-right: auto;" alt="">
-              </div>
-              <div class="detail-box" style="color: black;">
-                <h6>
-                  Anorganic Waste
-                </h6>
-                <p>
-                  Anorganic waste accumulation is the buildup of non-biodegradable materials like plastics and
-                  metals over time. It poses environmental risks if not managed properly.
-                </p>
-                <a href="">
-                  Read More
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+        </section>
+    @endif
 
     <!-- end service section -->
 
