@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Article;
 use App\Models\donate;
 use App\Models\feedback;
+use App\Models\Volunteer;
 use App\Models\volunteers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;

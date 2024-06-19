@@ -33,6 +33,7 @@
         <div style="margin-left: 20px;">
             <h1>{{ $article->title }}</h1>
             <p>{{ substr($article->description, 0, 100) }}{{ strlen($article->description) > 100 ? "..." : "" }}</p>
+            <p><strong>Volunteers:</strong> {{ $article->volunteers->count() }}</p>
             <a class="btn btn-primary d-flex align-items-end" href="{{ route('article.detail', $article->id) }}">Take Actions ></a>
         </div>
     </div>

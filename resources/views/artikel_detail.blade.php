@@ -4,20 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>{{ $article->title }}</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
+            background-color: #FBF1DD;
         }
 
         .container {
             max-width: 800px;
             margin: 20px auto;
             padding: 20px;
-            background-color: white
+            background-color: white;
         }
 
         h1 {
@@ -35,30 +36,37 @@
             text-align: justify;
         }
 
-        div {
-            margin-bottom: 20px;
+        .btn-container {
+            text-align: center;
+            margin-top: 20px;
         }
     </style>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+        crossorigin="anonymous">
 </head>
-<body style="background-color: #FBF1DD; ">
+
+<body>
     <div class="container">
         <div>
-            <h1> {{ $articles->title }}</h1>
+            <h1>{{ $article->title }}</h1>
         </div>
         <div>
-            <img src="{{ asset('storage/' . $articles->image) }}" alt="">
+            <img src="{{ asset('storage/' . $article->image) }}" alt="{{ $article->title }}">
         </div>
         <div>
-            {{ $articles->description }}
+            <p>{{ $article->description }}</p>
         </div>
+        <div class="btn-container">
+            <a class="btn btn-danger" href="{{ route('article.form', $article->id) }}">Join Volunteer Now!</a>
         </div>
-        <div class="d-flex justify-content-center">
-
-            <a class="btn btn-danger" href="{{ route('article.form', $articles->id) }}">Join Volunteer Now!</a>
+        <div class="mt-3">
+            <p><strong>{{ $volunteerCount }}</strong> Volunteers have joined this article.</p>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

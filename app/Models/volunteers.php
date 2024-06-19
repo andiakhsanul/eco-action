@@ -13,18 +13,21 @@ class Volunteers extends Model
     protected $primaryKey = 'id';
     protected $keyType = 'int';
 
-    protected $fillable = ['user_id', 'article_id', 'fname', 'lname', 'email', 'phone', 'city', 'state', 'postal'];
-
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
+    protected $fillable = [
+        'user_id', 'article_id', 'fname', 'lname', 'email', 'phone', 'city', 'state', 'postal'
+    ];
 
     public function article()
     {
         return $this->belongsTo(Article::class);
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    // Optional: Define accessor for full name
     public function getFullNameAttribute()
     {
         return $this->fname . ' ' . $this->lname;

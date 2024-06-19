@@ -13,6 +13,7 @@
                     <th class="text-center">Deskripsi</th>
                     <th class="text-center">Gambar</th>
                     <th class="text-center">Dibuat pada tanggal</th>
+                    <th class="text-center">Volunteers</th> <!-- Tambah kolom untuk volunteers -->
                     <th class="text-center">Action</th>
                 </tr>
             </thead>
@@ -25,6 +26,7 @@
                             <img src="{{ asset('storage/' . $article->image) }}" alt="Gambar Artikel" style="max-width: 100px;">
                         </td>
                         <td>{{ $article->created_at->format('d/m/Y H:i:s') }}</td>
+                        <td>{{ $article->volunteers->count() }}</td> <!-- Menampilkan jumlah volunteers -->
                         <td>
                             <a href="{{ route('admin.articles.show', $article->id) }}" class="btn btn-sm btn-info">Detail</a>
                             <a href="{{ route('articles.edit', $article->id) }}" class="btn btn-primary btn-sm">Edit</a>

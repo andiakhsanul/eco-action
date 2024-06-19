@@ -39,7 +39,7 @@ class volunteersController extends Controller
         ]);
         $users = Auth::user();
         // Redirect ke halaman selamat datang (welcomeuser)
-        return view('welcomeuser', compact('users'));
+        return redirect('/welcome');
     }
 
     public function destroy($id)
