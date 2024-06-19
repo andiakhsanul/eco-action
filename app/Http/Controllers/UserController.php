@@ -12,7 +12,8 @@ class UserController extends Controller
 {
     public function index(){
         $users = Auth::user();
-        return view('welcomeuser', compact('users'));
+        $educations = Education::all();
+        return view('welcomeuser', compact('users','educations'));
     }
     public function login()
     {

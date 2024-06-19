@@ -5,6 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+
+    <style>
+    .carousel-item {
+      text-align: center;
+    }
+
+    .carousel-item .box {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      height: 100%;
+    }
+
+    .carousel-item .img-box img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .carousel-item .detail-box {
+      margin-top: 20px;
+    }
+
+    .carousel-item h4 {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .carousel-item p {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
 </head>
 <body>
 
@@ -166,149 +200,50 @@
     </div>
   </section>
 
-  <!-- end about section -->
-
   <!-- service section -->
-  <section class=" slider_section ">
-@if($educations->isNotEmpty())
-        <!-- Service section -->
-        <section class="service_section layout_padding">
-            <div class="container">
-                <div class="heading_container heading_center">
-                    <h2>What's New?</h2>
-                </div>
-                <div class="row">
-                    @foreach($educations->take(3) as $education)
-                    <div class="col-md-4">
-                        <div class="box">
-                            <div class="img-box">
-                                <img src="{{ asset('storage/' . $education->image) }}" style="margin-left:auto; margin-right: auto;" alt="{{ $education->title }}">
-                            </div>
-                            <div class="detail-box" style="color: black;">
-                                <h6>{{ $education->title }}</h6>
-                                <p>{{ Str::limit($education->description, 25) }}</p> <!-- Batasi deskripsi maksimal 100 karakter -->
-                                <a href="{{ route('educations.show', $education->id) }}">Read More</a>
-                            </div>
-                        </div>
+  <section class=" slider_section " >
+<section class="client_section layout_padding" style="background-color: #505050">
+  <div class="container" id="feedback">
+    <div class="heading_container heading_center">
+      <h2 style="color: black;">
+        What's New?
+      </h2>
+    </div>
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        @foreach($educations->chunk(3) as $index => $educationChunk)
+          <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+            <div class="row">
+              @foreach($educationChunk as $education)
+                <div class="col-md-4">
+                  <div class="box">
+                    <div class="img-box">
+                      <img src="{{ asset('storage/' . $education->image) }}" alt="{{ $education->title }}">
                     </div>
-                    @endforeach
+                    <div class="detail-box">
+                      <h4>{{ $education->title }}</h4>
+                      <p>{{ Str::limit($education->description, 10) }}</p> <!-- Limit description to 100 characters -->
+                      <a href="{{ route('educations.show', $education->id) }}">Read More</a>
+                    </div>
+                  </div>
                 </div>
-            </div>
-        </section>
-    @endif
-
-    <!-- end service section -->
-
-
-    <!-- client section -->
-
-    <section class="client_section layout_padding">
-      <div class="container " id="feedback">
-        <div class="heading_container heading_center">
-          <h2 style="color: black;">
-            What is says our clients
-          </h2>
-        </div>
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <div class="box">
-                <div class="img-box">
-                  <img src="{{asset('assets/images/evita.png')}}" alt="">
-                </div>
-                <div class="detail-box">
-                  <h4>
-                    Agatha Christie
-                  </h4>
-                  <p style="color: black;">
-                    Great experience, Very lovely
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="carousel-item ">
-              <div class="box">
-                <div class="img-box">
-                  <img src="{{asset('assets/images/cili.png')}}" alt="">
-                </div>
-                <div class="detail-box">
-                  <h4>
-                    Chloe Zefanya
-                  </h4>
-                  <p style="color: black;">
-                    I had a great experience when join the volunteer, the people is lovely and very educative
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="carousel-item ">
-              <div class="box">
-                <div class="img-box">
-                  <img src="{{asset('assets/images/client.png')}}" alt="">
-                </div>
-                <div class="detail-box">
-                  <h4>
-                    Minim Veniam
-                  </h4>
-                  <p style="color: black;">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="carousel-item ">
-              <div class="box">
-                <div class="img-box">
-                  <img src="{{asset('assets/images/client.png')}}" alt="">
-                </div>
-                <div class="detail-box">
-                  <h4>
-                    Minim Veniam
-                  </h4>
-                  <p style="color: black;">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="carousel-item ">
-              <div class="box">
-                <div class="img-box">
-                  <img src="{{asset('assets/images/client.png')}}" alt="">
-                </div>
-                <div class="detail-box">
-                  <h4>
-                    Minim Veniam
-                  </h4>
-                  <p style="color: black;">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip
-                  </p>
-                </div>
-              </div>
+              @endforeach
             </div>
           </div>
-          <div class="carousel_btn-box">
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-              <i class="fa fa-angle-left" aria-hidden="true"></i>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-              <i class="fa fa-angle-right" aria-hidden="true"></i>
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
-        </div>
+        @endforeach
       </div>
-    </section>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+</section>
+
 
     <!-- end client section -->
 
