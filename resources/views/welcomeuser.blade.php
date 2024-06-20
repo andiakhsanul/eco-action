@@ -6,11 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 <style>
-   /* #carouselExampleControls .carousel-inner {
-  background-color: #505050; /* warna background hitam */
-  padding: 20px; /* tambahkan padding untuk memberi jarak */
-} */
-
 #carouselExampleControls .carousel-item {
   color: #000; /* warna teks hitam */
 }
@@ -56,7 +51,7 @@
     color: #fff; /* warna teks tombol putih */
     border: none;
     padding: 10px 20px;
-    
+
     text-decoration: none;
     display: inline-block;
     margin-top: 10px;
