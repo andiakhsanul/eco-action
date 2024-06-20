@@ -267,7 +267,7 @@
               sustainable future for all.
             </p>
             <div class="btn-box">
-              <a href="{{route('volunteer')}}">
+              <a href="{{route('login')}}">
                 More Ways You Can Help >
               </a>
             </div>
