@@ -15,7 +15,7 @@ class feedbackController extends Controller
             'email'=> $request->email,
         ]);
         $users = Auth::user();
-        return view('welcomeuser', compact('users'));
+        return redirect('/welcome');
     }
     public function destroy($id){
         $feedback = feedback::findOrFail($id);
