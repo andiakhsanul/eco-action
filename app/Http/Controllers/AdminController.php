@@ -11,6 +11,7 @@ use App\Models\volunteers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use App\Models\Education;
 
 
 class AdminController extends Controller
@@ -22,8 +23,9 @@ class AdminController extends Controller
         $articles = Article::count();
         $feedback = feedback::count();
         $donations = donate::count();
+        $educations = Education::count();
 
-        return view('dashboard.home', compact('users', 'volunteers', 'articles', 'feedback', 'donations'));
+        return view('dashboard.home', compact('users', 'volunteers', 'articles', 'feedback', 'donations', 'educations'));
     }
 
     public function users()

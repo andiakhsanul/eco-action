@@ -34,6 +34,12 @@
                 <h4 style="color:white;">Total Feedback: {{ $feedback }}</h4>
             </div>
         </div>
+        <div class="col-sm-3">
+            <div class="card">
+                <i class="fa fa-graduation-cap mb-2" style="font-size: 70px;"></i>
+                <h4 style="color:white;">Total education: {{ $feedback }}</h4>
+            </div>
+        </div>
     </div>
 
 </div>
