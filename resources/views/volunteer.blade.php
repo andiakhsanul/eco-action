@@ -62,6 +62,18 @@
   <meta name="author" content="" />
 </head>
 
+<style>
+    .landing_area {
+        background-color: #0A633D;
+    }
+    .container {
+        /* max-width: 800px;
+        margin: 20px auto;
+        padding: 20px; */
+        /* background-color: white; */
+    }
+</style>
+
 <body>
   <div class="landing_area">
     <!-- header section strats -->
@@ -88,14 +100,14 @@
             <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
               <ul class="navbar-nav  ">
                 <li class="nav-item active">
-                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="/welcome">Home <span class="sr-only">(current)</span></a>
                 </li>
                 {{-- <li class="nav-item">
                   <a class="nav-link" href="#about"> About us</a>
                 </li> --}}
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                   <a class="nav-link" href="#feedback"> Feedback</a>
-                </li>
+                </li> --}}
                 <!-- <li class="nav-item">
                   <a class="nav-link" href="{{route('contact')}}">Contact us</a>
                 </li> -->

@@ -24,6 +24,10 @@
     <link rel="shortcut icon" href="{{ asset('assets/images/logo ecoact.png') }}" type="image/x-icon">
 
     <style>
+        .landing_area {
+            background: #0A633D;
+            font-family: 'Poppins', sans-serif;
+        }
         .detailedukasi {
             background: #f8f9fa;
             border-radius: 10px;
@@ -69,11 +73,11 @@
 <body>
     <div class="landing_area">
         <!-- header section starts -->
-        <div class="landing_bg_box">
+        {{-- <div class="landing_bg_box">
             <div class="img-box">
                 <img src="{{ asset('assets/images/web bg 2.png') }}" alt="">
             </div>
-        </div>
+        </div> --}}
 
         <header class="header_section">
             <div class="header">

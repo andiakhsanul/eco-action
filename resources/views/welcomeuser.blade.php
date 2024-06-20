@@ -5,40 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+<style>
+   /* #carouselExampleControls .carousel-inner {
+  background-color: #505050; /* warna background hitam */
+  padding: 20px; /* tambahkan padding untuk memberi jarak */
+} */
 
-    <style>
-    .carousel-item {
-      text-align: center;
-    }
+#carouselExampleControls .carousel-item {
+  color: #000; /* warna teks hitam */
+}
 
-    .carousel-item .box {
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 20px;
-      height: 100%;
-    }
+#carouselExampleControls .carousel-item .box {
+  background-color: #fff; /* warna background putih untuk card */
+  border-radius: 8px;
+  padding: 20px;
+  margin: 10px; /* jarak antar card */
+  text-align: center;
+}
 
-    .carousel-item .img-box img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
+#carouselExampleControls .carousel-item .box h4 {
+  color: #000; /* warna teks judul hitam */
+  font-size: 18px;
+  font-weight: bold;
+}
 
-    .carousel-item .detail-box {
-      margin-top: 20px;
-    }
+#carouselExampleControls .carousel-item .box p {
+  color: #00000068; /* warna teks deskripsi hijau */
+  font-size: 14px;
+  line-height: 1.6;
+}
 
-    .carousel-item h4 {
-      font-size: 18px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
+#carouselExampleControls .carousel-item .box .btn-2 {
+  background-color: #008000; /* warna latar belakang hijau untuk tombol */
+  color: #fff; /* warna teks tombol putih */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px; /* membuat tombol menjadi lingkaran */
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
+  transition: background-color 0.3s ease; /* transisi warna saat hover */
+}
 
-    .carousel-item p {
-      font-size: 14px;
-      line-height: 1.6;
-    }
-  </style>
+#carouselExampleControls .carousel-item .box .btn-2:hover {
+  background-color: #005200; /* warna latar belakang saat tombol dihover */
+  color: #fff;
+}
+ #carouselExampleControls .readmore{
+    background-color: #008000; /* warna latar belakang hijau untuk tombol */
+    color: #fff; /* warna teks tombol putih */
+    border: none;
+    padding: 10px 20px;
+    
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+    transition: background-color 0.3s ease; /* transisi warna saat hover */
+ }
+}
+</style>
 </head>
 <body>
 
@@ -202,10 +227,10 @@
 
   <!-- service section -->
   <section class=" slider_section " >
-<section class="client_section layout_padding" style="background-color: #505050">
+<section class="client_section layout_padding" style="background-color: #000000">
   <div class="container" id="feedback">
     <div class="heading_container heading_center">
-      <h2 style="color: black;">
+      <h2 style="color: rgb(255, 253, 253);">
         What's New?
       </h2>
     </div>
@@ -223,7 +248,8 @@
                     <div class="detail-box">
                       <h4>{{ $education->title }}</h4>
                       <p>{{ Str::limit($education->description, 10) }}</p> <!-- Limit description to 100 characters -->
-                      <a href="{{ route('educations.show', $education->id) }}">Read More</a>
+<div class="readmore"><a href="{{ route('educations.show', $education->id) }}">Read More</a></div>
+
                     </div>
                   </div>
                 </div>
