@@ -64,13 +64,13 @@
 
 <style>
     .landing_area {
-        background-color: #0A633D;
+        background-color: #0a633c39;
     }
     .container {
-        /* max-width: 800px;
-        margin: 20px auto;
+        /* max-width: 800px; */
+        /* margin: 20px auto;
         padding: 20px; */
-        /* background-color: white; */
+         /* background-color: #0a633c72; */
     }
 </style>
 
@@ -127,7 +127,7 @@
                 <h1>{{ $article->title }}</h1>
                 <p>{{ Str::limit($article->description, 40) }}</p>
                 <p><strong>Volunteers:</strong> {{ $article->volunteers->count() }}</p>
-                <a class="btn btn-primary" href="{{ route('article.detail', $article->id) }}">Take Actions ></a>
+                <a class="btn btn-success" href="{{ route('article.detail', $article->id) }}">Take Actions ></a>
             </div>
         </div>
         @endforeach
