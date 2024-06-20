@@ -13,8 +13,17 @@ class UserController extends Controller
     public function index(){
         $users = Auth::user();
         $educations = Education::all();
-        return view('welcomeuser', compact('users','educations'));
+
+        // Periksa apakah $users tidak ada
+        if(!$users) {
+            // Jika tidak ada $users, redirect ke ("/")
+            return redirect('/');
+        }
+
+        // Jika ada $users, tampilkan view 'welcomeuser'
+        return view('welcomeuser', compact('users', 'educations'));
     }
+
     public function login()
     {
         return view('login');

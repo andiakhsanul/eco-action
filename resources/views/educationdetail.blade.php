@@ -109,7 +109,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            <div class="card-header bg-primary text-white text-center">
+                            <div class="card-header bg-success text-white text-center">
                                 <h5 class="mb-0">{{ $education->title }}</h5>
                             </div>
                             <div class="card-body">
