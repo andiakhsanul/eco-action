@@ -47,18 +47,24 @@
   background-color: #005200; /* warna latar belakang saat tombol dihover */
   color: #fff;
 }
- #carouselExampleControls .readmore{
+ /* #carouselExampleControls .readmore{
+
+
+ } */
+ #carouselExampleControls .readmore a {
     background-color: #008000; /* warna latar belakang hijau untuk tombol */
     color: #fff; /* warna teks tombol putih */
     border: none;
     padding: 10px 20px;
-
     text-decoration: none;
     display: inline-block;
     margin-top: 10px;
-    transition: background-color 0.3s ease; /* transisi warna saat hover */
+    transition: background-color 0.3s ease;
+    display: inline;
  }
-}
+
+
+
 </style>
 <body>
 
