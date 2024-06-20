@@ -55,8 +55,8 @@ class EducationController extends Controller
 
     public function edit($id)
     {
-        $education = Education::findOrFail($id);
-        return view('dashboard.educations.edit', compact('education'));
+        $educations = Education::findOrFail($id);
+        return view('dashboard.educations.edit', compact('educations'));
     }
 
     public function update(Request $request, $id)
@@ -93,7 +93,7 @@ class EducationController extends Controller
         $education->save();
 
         // Redirect dengan pesan sukses
-        return redirect()->route('dashboard.educations.index')->with('success', 'Education berhasil diperbarui.');
+        return redirect()->route('dashboard.educations.index');
     }
 
     public function destroy($id)
